@@ -1,32 +1,80 @@
+"use client";
+import { useReducer, useState } from "react";
 import HomeComp from "./components/HomeComp";
 import LowerComp from "./components/LowerComp";
 import MiddleComp from "./components/MiddleComp";
+import Context from "./context/Context";
+import { initialState, reducer } from "./context/Reducer";
+import HomeTodo from "./components/ToDo/HomeTodo";
 
 export default function Home() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [task, setTask] = useState("");
+
+  const addTask = (e) => {
+    if (!task) {
+      return alert("Empty task!");
+    }
+    if (e.keyCode === 13) {
+      dispatch({
+        type: "ADD_TO_TASK",
+        payload: task,
+      });
+      setTask("");
+    }
+  };
+
+
+
   return (
-    <main
-      className="min-h-full w-full"
-      style={{
-        background: "linear-gradient(140deg, #0A5783 5.05%, #18A19A 100%)",
-      }}
-    >
-      <div
+    <Context.Provider value={[state, dispatch]}>
+      <main
+        className="min-h-full w-full"
         style={{
           background: "linear-gradient(140deg, #0A5783 5.05%, #18A19A 100%)",
         }}
       >
-        <div className="p-20">
-          <HomeComp />
+        {/*UI DESIGN */}
+
+        <div
+          style={{
+            background: "linear-gradient(140deg, #0A5783 5.05%, #18A19A 100%)",
+          }}
+        >
+          <div className="p-20">
+            <HomeComp />
+          </div>
+
+          <div className="w-[90%] mx-auto">
+            <MiddleComp />
+          </div>
+
+          <LowerComp />
         </div>
 
-        <div className="w-[90%] mx-auto">
-          <MiddleComp />
+        {/*TODO */}
+        <div className="min-h-screen flexComp flex-col">
+          <h1 className="text-center text-white text-4xl font-bold">
+            Todo Operator
+          </h1>
+          <br />
+
+          <div className="flexComp w-full gap-5">
+            <section className="w-1/3 flexComp">
+              <input
+                placeholder="Add Task"
+                className="outline-none px-5 py-3 w-full rounded-md"
+                onKeyUp={(e) => addTask(e)}
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+              />
+            </section>
+
+          </div>
+
+          <HomeTodo />
         </div>
-
-        <LowerComp />
-      </div>
-
-      
-    </main>
+      </main>
+    </Context.Provider>
   );
 }
