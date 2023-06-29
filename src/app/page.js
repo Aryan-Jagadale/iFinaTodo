@@ -53,7 +53,7 @@ export default function Home() {
         </div>
 
         {/*TODO */}
-        <div className="min-h-screen flexComp flex-col">
+        <div className="min-h-[75vh] flexComp flex-col">
           <h1 className="text-center text-white text-4xl font-bold">
             Todo Operator
           </h1>
