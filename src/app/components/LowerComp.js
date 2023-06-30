@@ -19,16 +19,16 @@ const LowerComp = () => {
                 </div>
                 <br />
                 <div className="flexComp">
-                  <div className="flex items-center justify-center w-[70%]">
-                    <p className="w-1/3 tracking-wide text-center font-normal ">
+                  <div className="flex items-center justify-center w-[70%] font-light">
+                    <p className="w-1/3 tracking-wide text-center  font-light ">
                       Answer few
                       <br /> questions
                     </p>
-                    <p className="w-1/3 tracking-wide  font-normal text-center ">
+                    <p className="w-1/3 tracking-wide   text-center font-light">
                       Register using
                       <br /> phone and OTP
                     </p>
-                    <p className="w-1/3 tracking-wide font-normal text-center ">
+                    <p className="w-1/3 tracking-wide  text-center font-light">
                       Get report and
                       <br /> personal roadmap
                     </p>
