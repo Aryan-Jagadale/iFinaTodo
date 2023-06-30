@@ -1,8 +1,8 @@
 "use client";
 import { useReducer, useState } from "react";
-import HomeComp from "./components/HomeComp";
+import HomeComp from "./components/Hero";
 import LowerComp from "./components/LowerComp";
-import MiddleComp from "./components/MiddleComp";
+import MiddleComp from "./components/Features";
 import Context from "./context/Context";
 import { initialState, reducer } from "./context/Reducer";
 import HomeTodo from "./components/ToDo/HomeTodo";
@@ -15,16 +15,28 @@ export default function Home() {
     if (!task) {
       return alert("Empty task!");
     }
+
     if (e.keyCode === 13) {
-      dispatch({
-        type: "ADD_TO_TASK",
-        payload: task,
-      });
-      setTask("");
+      if (task === " ") {
+        return alert("Task is empty!");
+      } else if (task) {
+        let found = state.tasks.some((obj) => {
+          if (obj.task.toString() === task.toString()) {
+            return true;
+          }
+          return false;
+        });
+        if (found) {
+          return alert("Task already there!");
+        }
+        dispatch({
+          type: "ADD_TO_TASK",
+          payload: task.trim(),
+        });
+        setTask("");
+      }
     }
   };
-
-
 
   return (
     <Context.Provider value={[state, dispatch]}>
@@ -69,7 +81,6 @@ export default function Home() {
                 onChange={(e) => setTask(e.target.value)}
               />
             </section>
-
           </div>
 
           <HomeTodo />

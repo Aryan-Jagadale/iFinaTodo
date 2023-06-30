@@ -2,6 +2,8 @@ export const initialState = {
   tasks: [],
 };
 
+//separate actions
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_TASK":
@@ -34,8 +36,8 @@ export const reducer = (state, action) => {
             .includes(action.query.toString().toLowerCase())
         ),
       };
-    
-      default:
+
+    default:
       return state;
   }
 };
