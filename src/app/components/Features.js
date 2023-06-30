@@ -3,7 +3,8 @@ import TodoComp from "./TodoComp";
 import Image from "next/image";
 import mobile from "../../../public/mobile.png";
 
-const MiddleComp = () => {
+//Features
+const Features = () => {
   return (
     <div className="flex w-full max-h-screen">
       <div className="w-1/3 relative z-10 right-[-6em] ">
@@ -25,4 +26,4 @@ const MiddleComp = () => {
   );
 };
 
-export default MiddleComp;
+export default Features;

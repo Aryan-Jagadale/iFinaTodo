@@ -1,5 +1,5 @@
 import Context from "@/app/context/Context";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 
 const HomeTodo = () => {
   const [{ tasks }, dispatch] = useContext(Context);
@@ -48,9 +48,9 @@ const HomeTodo = () => {
                 .toLowerCase()
                 .includes(query.toString().toLowerCase())
             )
-            .map((item, index) => (
+            .map((item) => (
               <div
-                key={index}
+                key={item.task}
                 className={`${
                   item.completed ? "bg-gray-500" : "bg-white"
                 } text-center rounded-3xl border shadow-lg p-5 max-w-xs`}
@@ -60,19 +60,21 @@ const HomeTodo = () => {
                   {item.task}{" "}
                 </h1>
                 <h3 className="text-sm text-gray-400 "> Task </h3>
-                <button
-                  className=" mr-3 bg-indigo-600 px-5 py-1 mt-8 rounded-3xl text-gray-100 tracking-wide"
-                  onClick={() => completeTask(item)}
-                  disabled={item.completed ? true : false}
-                >
-                  Completed
-                </button>
-                <button
-                  className="bg-red-600 px-5 py-1 mt-8 rounded-3xl text-gray-100 tracking-wide"
-                  onClick={() => deleteTask(item)}
-                >
-                  Delete
-                </button>
+                <div className="flexComp ">
+                  <button
+                    className=" mr-3 bg-indigo-600 px-5 py-1 mt-8 rounded-3xl text-gray-100 tracking-wide"
+                    onClick={() => completeTask(item)}
+                    disabled={item.completed ? true : false}
+                  >
+                    Completed
+                  </button>
+                  <button
+                    className="bg-red-600 px-5 py-1 mt-8 rounded-3xl text-gray-100 tracking-wide"
+                    onClick={() => deleteTask(item)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             ))}
       </div>

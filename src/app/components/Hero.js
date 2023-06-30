@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
-
-const HomeComp = () => {
+//hero
+const Hero = () => {
   return (
     <div className="flex items-center justify-center flex-col">
       <h1 className="font-medium text-5xl text-white">
@@ -17,4 +17,4 @@ const HomeComp = () => {
   );
 };
 
-export default HomeComp;
+export default Hero;
