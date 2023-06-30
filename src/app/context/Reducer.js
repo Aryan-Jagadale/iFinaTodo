@@ -3,20 +3,26 @@ export const initialState = {
 };
 
 //separate actions
+const ACTIONS = {
+  ADD_TO_TASK: "ADD_TO_TASK",
+  REMOVE_FROM_TASK: "REMOVE_FROM_TASK",
+  TASK_COMPLETE: "TASK_COMPLETE",
+  GET_TASK: "GET_TASK",
+};
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_TO_TASK":
+    case ACTIONS.ADD_TO_TASK:
       return {
         ...state,
         tasks: [...state.tasks, { task: action.payload, completed: false }],
       };
-    case "REMOVE_FROM_TASK":
+    case ACTIONS.REMOVE_FROM_TASK:
       return {
         ...state,
         tasks: state.tasks.filter((p) => p.task !== action.payload.task),
       };
-    case "TASK_COMPLETE":
+    case ACTIONS.TASK_COMPLETE:
       return {
         ...state,
         tasks: state.tasks.filter((p) =>
@@ -26,7 +32,7 @@ export const reducer = (state, action) => {
         ),
       };
 
-    case "GET_TASK":
+    case ACTIONS.GET_TASK:
       return {
         ...state,
         tasks: state.tasks.filter((p) =>

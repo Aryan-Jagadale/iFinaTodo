@@ -16,7 +16,7 @@ export default function Home() {
       return alert("Empty task!");
     }
 
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && e.keyCode !== 8) {
       if (task === " ") {
         return alert("Task is empty!");
       } else if (task) {
