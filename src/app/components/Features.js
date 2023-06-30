@@ -7,7 +7,7 @@ import mobile from "../../../public/mobile.png";
 const Features = () => {
   return (
     <div className="flex w-full max-h-screen">
-      <div className="w-1/3 relative z-10 right-[-6em] ">
+      <div className="w-1/3 relative z-10 right-[-9em] ">
         <div className="my-[15vh] ">
           <TodoComp text={"Expected Retirement Age"} />
           <TodoComp text={"Identify Mistakes"} />

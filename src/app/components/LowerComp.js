@@ -7,7 +7,7 @@ import Button from "./Button";
 const LowerComp = () => {
   return (
     <>
-      <div className="relative top-[-10rem] z-10">
+      <div className="relative top-[-11vw] z-10">
         <section className="backImage min-h-screen bg-red-500 flex items-center justify-center ">
           <div className="w-full flex flex-col self-end py-[2rem]">
             <div className="text-white flex flex-col items-center justify-center gap-5">
