@@ -13,7 +13,7 @@ const Features = () => {
           <TodoComp text={"Identify Mistakes"} />
         </div>
       </div>
-      <div className="w-1/3 h-full ml-[5.25rem]">
+      <div className=" h-[60vh] ml-[5.25rem]">
         <Image src={mobile} alt="mobile" className="h-full w-full" />
       </div>
       <div className="w-[30%] z-10 relative left-[-5em] ">
